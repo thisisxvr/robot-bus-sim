@@ -18,7 +18,7 @@ export class Simulator {
     if (!this.bus) return;
 
     // Validate the new parking spot before moving the bus.
-    let [newCoördinateX, newCoördinateY] = [this.bus.north, this.bus.east];
+    let newCoördinateX = this.bus.north, newCoördinateY = this.bus.east;
     switch (this.bus.direction) {
       case "NORTH":
         newCoördinateX += 1;
