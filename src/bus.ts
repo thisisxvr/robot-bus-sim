@@ -1,15 +1,9 @@
+export type direction = "NORTH" | "EAST" | "SOUTH" | "WEST";
 
 export class Bus {
-  private _north: number;
-  private _east: number;
-  private _direction: string;
   readonly directions = ["NORTH", "EAST", "SOUTH", "WEST"];
 
-  constructor(x = 0, y = 0, facing = "NORTH") {
-    this._north = y;
-    this._east = x;
-    this._direction = facing;
-  }
+  constructor(private _east = 0, private _north = 0, private _direction = "NORTH") { }
 
   get north() { return this._north; }
 
@@ -17,52 +11,38 @@ export class Bus {
 
   get direction() { return this._direction; }
 
+  private move_north() { this._north += 1; }
+
+  private move_east() { this._east += 1; }
+
+  private move_south() { this._north -= 1; }
+
+  private move_west() { this._east -= 1; }
+
+  /** Moves the bus a step forward in the direction its facing. */
   move() {
     switch (this._direction) {
-      case "NORTH":
-        this.move_north();
-        break;
-      case "EAST":
-        this.move_east();
-        break;
-      case "SOUTH":
-        this.move_south();
-        break;
-      case "WEST":
-        this.move_west();
-        break;
-      default:
-        break;
+      case "NORTH": return this.move_north();
+      case "EAST": return this.move_east();
+      case "SOUTH": return this.move_south();
+      case "WEST": return this.move_west();
+      default: break;
     }
   }
 
-  move_north() { this._north++; }
-
-  move_east() { this._east++; }
-
-  move_south() { this._north--; }
-
-  move_west() { this._east--; }
-
+  /** Rotates the bus 90° to the left. */
   turn_left() {
-    const facing = this._direction;
-    const newDirection = this.directions.slice(this.directions.indexOf(facing) - 1)[0];
+    const newDirectionIdx = this.directions.indexOf(this._direction) - 1;
+    const newDirection = this.directions.slice(newDirectionIdx)[0];   // Using slice() because it accepts negative indices.
     this._direction = newDirection;
   }
 
+  /** Rotates the bus 90° to the right. */
   turn_right() {
-    const facing = this._direction;
-    const directions = this.directions;
-    directions.reverse();
-    const newDirection = directions.slice(directions.indexOf(facing) - 1)[0];
-    this._direction = newDirection;
-  }
+    const directions = Array.from(this.directions).reverse();   // Make a copy of directions[] because .reverse() is destructive.
 
-  report() {
-    return {
-      x: this._east,
-      y: this._north,
-      direction: this._direction
-    };
+    const newDirectionIdx = directions.indexOf(this._direction) - 1;
+    const newDirection = directions.slice(newDirectionIdx)[0];
+    this._direction = newDirection;
   }
 }
