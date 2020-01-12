@@ -1,15 +1,18 @@
 {
   "name": "robot-bus-sim",
   "version": "0.1.0",
-  "description": "",
+  "description": "A simulation of a robot operated bus moving in a carpark",
   "scripts": {
     "test": "jest",
     "tsc": "tsc",
-    "tslint": "tslint --project /.tsconfig.json"
+    "tslint": "tslint --project /.tsconfig.json",
+    "launch": "ts-node ./src/main.ts"
   },
   "author": "Xavier Francis",
   "license": "MIT",
   "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.7.5",
+    "@babel/preset-typescript": "^7.7.7",
     "@types/jest": "^24.0.23",
     "@types/node": "^12.12.20",
     "jest": "^24.9.0",
