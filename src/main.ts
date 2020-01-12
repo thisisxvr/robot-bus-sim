@@ -1,7 +1,7 @@
 import readline from 'readline';
 import { Simulator } from './simulator';
 
-// Create readline interface to get user input.
+// Create readline interface.
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
@@ -44,7 +44,7 @@ rl.on('line', (cmd) => {
     rl.prompt();
   } else if (cmd === "REPORT") {
     const res = sim.report();
-    if (typeof res === 'object') console.log(`The bus is parked at (${res.x}, ${res.y}), facing ${res.direction}`);
+    if (typeof res === 'object') console.log(`The bus is parked at (${res.x}, ${res.y}), facing ${res.f}`);
     rl.prompt();
   } else if (cmd === "QUIT") {
     rl.close();

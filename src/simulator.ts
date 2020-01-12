@@ -1,5 +1,5 @@
-import { Bus } from "../src/bus";
-import { Carpark } from "../src/carpark";
+import { Bus } from "./bus";
+import { Carpark } from "./carpark";
 
 /** Simulates the interaction between a bus and carpark. */
 export class Simulator {
@@ -61,7 +61,7 @@ export class Simulator {
     return {
       x: this.bus.east,
       y: this.bus.north,
-      direction: this.bus.direction
+      f: this.bus.direction
     };
   }
 }

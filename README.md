@@ -12,24 +12,16 @@ There are no other obstructions in the carpark. The bus is free to roam around t
 ```
 > git clone
 > npm install
-> npm launch 
+> npm run-script launch 
 ```
 
 ## Commands
-`PLACE {X,Y,F}`
-`MOVE`
-`LEFT`
-`RIGHT`
-`REPORT`
-
----
-
-- PLACE will put the bus in the carpark in position {X,Y} and facing {NORTH, SOUTH, EAST or WEST}.
-- The first valid command to the bus is a PLACE command. After that, any sequence of commands may be issued, in any order, including another PLACE command. The app discards all commands in the sequence until a valid PLACE command has been executed.
+- `PLACE {X,Y,F}` will put the bus in the carpark in position {X,Y} and facing {NORTH, SOUTH, EAST or WEST}.
+- `MOVE` will move the bus one unit forward in the direction it is currently facing.
+- `LEFT` and `RIGHT` will rotate the bus 90 degrees in the specified direction without changing the position of the bus.
+- `REPORT` will announce the X, Y and F of the bus.
+- The first valid command to the bus must be a PLACE command. After that, any sequence of commands may be issued, in any order, including another PLACE command. The app discards all commands in the sequence until a valid PLACE command has been executed.
 - The origin (0,0) is the SOUTH-WEST most corner.
-- MOVE will move the bus one unit forward in the direction it is currently facing.
-- LEFT and RIGHT will rotate the bus 90 degrees in the specified direction without changing the position of the bus.
-- REPORT will announce the X, Y and F of the bus.
 - The bus cannot exit the carpark during movements. This also includes the initial placement of the bus.
 
 ### Example

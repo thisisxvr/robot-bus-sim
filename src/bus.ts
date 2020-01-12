@@ -1,5 +1,3 @@
-export type direction = "NORTH" | "EAST" | "SOUTH" | "WEST";
-
 export class Bus {
   readonly directions = ["NORTH", "EAST", "SOUTH", "WEST"];
 
