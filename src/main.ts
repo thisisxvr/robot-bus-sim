@@ -16,25 +16,14 @@ rl.on('line', (cmd) => {
   cmd = cmd.trim().toUpperCase();
 
   if (cmd.startsWith("PLACE ")) {
-    // Validate arguments for PLACE command.
-    let x, y, f = '';
-    const directions = ["NORTH", "EAST", "SOUTH", "WEST"];
-
-    try {
-      const args = cmd.substr(6).split(',');
-      x = Number.parseInt(args[0]);
-      y = Number.parseInt(args[1]);
-      f = args[2].trim();
-    } catch (e) {
-      console.error(e);
-    }
-
-    if (typeof x === 'number' && typeof y === 'number' && directions.includes(f)) sim.place(x, y, f);
-    else console.error("Invalid arguments.");
+    const args = cmd.substr(6).split(',');
+    const res = sim.place(args);
+    if (res) console.error(res);
 
     rl.prompt();
   } else if (cmd === "MOVE") {
-    sim.move();
+    const res = sim.move();
+    if (typeof res === "string") console.error(res);
     rl.prompt();
   } else if (cmd === "LEFT") {
     sim.left();
@@ -45,6 +34,7 @@ rl.on('line', (cmd) => {
   } else if (cmd === "REPORT") {
     const res = sim.report();
     if (typeof res === 'object') console.log(`The bus is parked at (${res.x}, ${res.y}), facing ${res.f}`);
+    else console.error(res);
     rl.prompt();
   } else if (cmd === "QUIT") {
     rl.close();

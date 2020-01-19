@@ -5,6 +5,7 @@ There are no other obstructions in the carpark. The bus is free to roam around t
 
 ## Dependencies
 - TypeScript
+- React
 - Jest
 - ts-node
 
@@ -12,8 +13,12 @@ There are no other obstructions in the carpark. The bus is free to roam around t
 ```
 $ git clone
 $ npm install
-$ npm run-script launch 
 ```
+
+### CLI:
+`$ npm run-script launch`
+### Web UI:
+`$ npm run-script serve` and browse to `http://localhost:1234`.
 
 ## Commands
 - `PLACE {X,Y,F}` will put the bus in the carpark in position {(X,Y)} and facing {NORTH, SOUTH, EAST or WEST}.

@@ -1,0 +1,74 @@
+body {
+  padding-top: 150px;
+  padding-bottom: 80px;
+  margin: auto;
+  background-color: white;
+  font-family: "Menlo", "Consolas", monospace;
+  color: black;
+  width: 60%;
+}
+
+.parking-row {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.parking-spot {
+  width: 3em;
+  height: 3em;
+  border: 2px solid rgb(0, 253, 199);
+  background: #fff;
+  float: left;
+  font-size: 3em;
+  font-weight: bold;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+}
+
+.direction-null {
+  overflow: hidden; 
+  color:transparent;
+}
+
+.direction-north {
+  overflow: visible; 
+  color: black;
+}
+
+.direction-east {
+  overflow: visible; 
+  transform: rotate(90deg);
+}
+
+.direction-west {
+  overflow: visible; 
+  transform: rotate(-90deg);
+}
+
+.direction-south {
+  overflow: visible; 
+  transform: rotate(180deg);
+}
+
+.header {
+  min-height: 2em;
+}
+
+input {
+  margin-top: 20px;
+  transition: all .2s ease-out;
+  background: transparent;
+  font-family: "Menlo", "Consolas", monospace;
+  font-size: 15px;
+  text-align: left;
+  color: #1b3815;
+  line-height: 2;
+  height: 2em;
+  width: 70%;
+  border: none;
+  border-bottom: 2px solid black;
+  outline: none;
+}

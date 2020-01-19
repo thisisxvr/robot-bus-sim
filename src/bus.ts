@@ -1,5 +1,6 @@
+export const directions = ["NORTH", "EAST", "SOUTH", "WEST"];
+
 export class Bus {
-  readonly directions = ["NORTH", "EAST", "SOUTH", "WEST"];
 
   constructor(private _east = 0, private _north = 0, private _direction = "NORTH") { }
 
@@ -30,17 +31,17 @@ export class Bus {
 
   /** Rotates the bus 90° to the left. */
   turn_left() {
-    const newDirectionIdx = this.directions.indexOf(this._direction) - 1;
-    const newDirection = this.directions.slice(newDirectionIdx)[0];   // Using slice() because it accepts negative indices.
+    const newDirectionIdx = directions.indexOf(this._direction) - 1;
+    const newDirection = directions.slice(newDirectionIdx)[0];   // Using slice() because it accepts negative indices.
     this._direction = newDirection;
   }
 
   /** Rotates the bus 90° to the right. */
   turn_right() {
-    const directions = Array.from(this.directions).reverse();   // Make a copy of directions[] because .reverse() is destructive.
+    const _directions = Array.from(directions).reverse();   // Make a copy of directions[] because .reverse() is destructive.
 
-    const newDirectionIdx = directions.indexOf(this._direction) - 1;
-    const newDirection = directions.slice(newDirectionIdx)[0];
+    const newDirectionIdx = _directions.indexOf(this._direction) - 1;
+    const newDirection = _directions.slice(newDirectionIdx)[0];
     this._direction = newDirection;
   }
 }
